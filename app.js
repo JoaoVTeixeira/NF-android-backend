@@ -10,23 +10,10 @@ require('dotenv').config({path: __dirname + '/.env' })
 var app = express();
 
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
 
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  // You can add more options here
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // If your API requires credentials like cookies
-};
+// CORS
+app.use(cors());
 
-app.use(cors(corsOptions));
 
 
 var indexRouter = require('./routes/index');
