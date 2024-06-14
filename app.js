@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const bodyParser = require('body-parser');
 
 require('dotenv').config({path: __dirname + '/.env' })
 var app = express();
