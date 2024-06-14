@@ -7,8 +7,8 @@ var cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 require('dotenv').config({path: __dirname + '/.env' })
-var app = express();
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const corsOptions = {
   origin: function (origin, callback) {
